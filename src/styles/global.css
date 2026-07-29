@@ -82,3 +82,16 @@
   --tw-prose-quotes: var(--color-quote);
   --tw-prose-th-borders: #666;
 }
+/* Shared component utilities - hoisted from page-scoped stlyes */
+
+@utility prose {
+  --tw-prose-body: var(--theme-text);
+  --tw-prose-bold: var(--theme-text);
+  --tw-prose-bullets: var(--theme-text);
+  --tw-prose-code: var(--theme-text);
+  --tw-prose-headings: var(--color-accent-2);
+  --tw-prose-hr: 0.5px dashed #666;
+  --tw-prose-links: var(--theme-text);
+  --tw-prose-quotes: var(--color-quote);
+  --tw-prose-th-borders: #666;
+}
