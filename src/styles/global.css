@@ -23,6 +23,12 @@
 
     &[data-theme="light"] {
       color-scheme: light;
+      --color-global-bg: oklch(1 0 0);
+      --color-global-text: oklch(20.8% 0.042 265.755);
+      --color-link: oklch(0.7774 0.1133 167.72);
+      --color-accent: oklch(58.8% 0.158 241.966);
+      --color-accent-2: oklch(43.7% 0.078 188.216);
+      --color-quote: oklch(0.5385 0.220991 29.2339);
     }
 
    &[data-theme="dark"] {
