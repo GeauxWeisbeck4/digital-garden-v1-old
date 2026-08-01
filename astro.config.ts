@@ -8,63 +8,121 @@ import alpinejs from '@astrojs/alpinejs';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
+import { unified } from "@astrojs/markdown-remark";
 import expressiveCode from 'astro-expressive-code';
 import webmanifest from 'astro-webmanifest';
 import robotsTxt from "astro-robots-txt";
-// Rehype plugins
-import { rehypeHeadingIds } from "@astrojs/markdown-remark";
+
 // Remark plugins
 import remarkDirective from "remark-directive";
-import { remarkAdmonitions } from "./src/plugins/remark-admonitions"
+import remarkMath from "remark-math";
+import { rehypeBasePath } from "./src/plugins/rehype-base-path";
+import { remarkAdmonitions } from "./src/plugins/remark-admonitions";
+import { remarkReadingTime } from "./src/plugins/remark-reading-time";
+
+import rehypeExternalLinks from "rehype-external-links";
+import rehypeKatex from "rehype-katex";
+import rehypeUnwrapImages from "rehype-unwrap-images";
 
 import { expressiveCodeOptions, siteConfig } from './src/site.config';
 
 
+// Deafults to root; the deploy workflow sets BASE_PATH for subpath hosts in GitHub Pages
+// (GitHub Pages project sites). See "Base path" in the README.
+const BASE_PATH = process.env.BASE_PATH || "/";
+const START_URL = BASE_PATH.endsWith("/") ? BASE_PATH : `${BASE_PATH}/`;
+
 // https://astro.build/config
 export default defineConfig({
   site: siteConfig.url,
+  base: BASE_PATH,
   image: {
     domains: ["webmention.io"]
   },
-  integrations: [
-    expressiveCode(expressiveCodeOptions), 
-    alpinejs(), 
-    mdx(), 
-    sitemap(), 
-    icon(), 
-    mdx(), 
-    webmanifest({
-      name: "WeisGarden - Andrew's Digital Garden",
-      short_name: "WeisGarden",
-      description: "A digital garden for Andrew Weis's notes, ideas, and projects.",
-      theme_color: "#ffffff",
-    // icons: [
-    //   {
-    //     src: "/icon-192.png",
-    //     sizes: "192x192",
-    //     type: "image/png"
-    //   },
-    // ],
-    // start_url: "/",
-    // display: "standalone",
-    // background_color: "#ffffff",
-    // scope: "/"
+  output: "static",
+  compressHTML: true,
+  build: {
+    inlineStylesheets: "always",
+  },
+  integrations: [expressiveCode(expressiveCodeOptions), alpinejs(), mdx(), sitemap({
+    changefreq: "weekly",
+    priority: 0.7,
+    lastmod: new Date(),
+  }), icon(), mdx(), robotsTxt(), //(await import("@playform/compress")).default(),
+  webmanifest({
+    name: siteConfig.title,
+    description: siteConfig.description,
+    lang: siteConfig.lang,
+    icon: "public/icon.png",
+    icons: [
+      {
+        src: "icons/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+      {
+        src: "icons/icon-192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        src: "icons/icon-512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
+    ],
+    start_url: START_URL,
+    background_color: "#ffffff",
+    theme_color: "f5f1e7",
+    display: "standalone",
+    config: {
+      insertFaviconLinks: false,
+      insertThemeColorMeta: false,
+      insertManifestLink: false,
+    },
   }), 
-  robotsTxt()
+  (await import("@playform/compress")).default(),
   ],
+  markdown: {
+		processor: unified({
+			rehypePlugins: [
+				rehypeUnwrapImages,
+				[rehypeBasePath, { base: BASE_PATH }],
+				// rehype-katex must run before rehype-external-links so the latter
+				// doesn't rewrite anchors inside katex's emitted DOM.
+				rehypeKatex,
+				[
+					rehypeExternalLinks,
+					{
+						rel: ["nofollow, noreferrer"],
+						target: "_blank",
+					},
+				],
+			],
+			remarkPlugins: [remarkReadingTime, remarkDirective, remarkAdmonitions, remarkMath],
+			remarkRehype: {
+				footnoteLabelProperties: {
+					className: [""],
+				},
+			},
+		}),
+	},
+	// https://docs.astro.build/en/guides/prefetch/
+	prefetch: true,
   vite: {
     optimizeDeps: {
       exclude: ["@resvg/resvg.js"],
     },
     plugins: [tailwindcss(), rawFonts([".ttf", ".woff"])],
   },
+
   env: {
     schema: {
       WEBMENTION_API_KEY: envField.string({ context: "server", access: "secret", optional: true }),
       WEBMENTION_URL: envField.string({ context: "client", access: "public", optional: true }),
       WEBMENTION_PINGBACK: envField.string({ context: "client", access: "public", optional: true }),
     },
-  }
+  },
 });
 
 function rawFonts(ext: string[]) {

@@ -1,6 +1,4 @@
 ---
 title: "Digital Garden"
-description: "A custom tag description of the Digital Garden"
+description: "Anything related to WeisGarden or other digital garden topics."
 ---
-
-A custom introduction to digital garden for my site.

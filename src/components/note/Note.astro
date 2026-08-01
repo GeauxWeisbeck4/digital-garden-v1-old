@@ -22,6 +22,7 @@ const { Content } = await render(note);
         <a class="weisgarden-link" href={`/notes/${note.id}/`}>
           {note.data.title}
         </a>
+        
       ) : (
         <>{note.data.title}</>
       )

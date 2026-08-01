@@ -3,7 +3,7 @@ title: "New MongoDB Query Builder Tool for Deno and CFB API"
 description: "Busy week as I started building a Deno compatible MongoDB Query Builder tool to publish on JSR.io and started building a CFB API for a stats website. Read on!"
 publishDate: "09 January 2026"
 tags: ["daily-post", "deno", "mongodb", "college football", "api"]
-pinned: "true"
+pinned: true
 monthCollection: "January"
 ---
 

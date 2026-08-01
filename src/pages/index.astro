@@ -6,7 +6,7 @@ import NotePreview from '../components/note/NotePreview.astro';
 import { getAllPosts } from '../utils/post';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { collectionDateSort } from '../utils/date';
-import CategoryAccordian from '../components/ui/CategoryAccordian.astro';
+
 
 // Posts
 const MAX_POSTS = 10;
@@ -32,38 +32,26 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
 
 <BaseLayout meta={{ title: 'Home' }}>
 	<section class="mx-auto mt-6 flex flex-col px-4 py-6">
-		<div class="max-w-4xl text-left">
-			<h1 class="text-3xl font-bold mb-4">WeisGarden</h1>
-			<h2 class="text-2xl text-accent-2 font-semibold mb-4">
-				Wisdom. Music. Sports. Coding. Andrew.
+		<div class="max-w-5xl text-left">
+			<h1 class="text-5xl text-sky-500 dark:text-sky-500 font-bold mb-4">WeisGarden</h1>
+			<h2 class="text-2xl text-teal-600 font-semibold mb-4">
+				Wisdom. Creativity. Spirituality.
 			</h2>
 			<p class="text-md mb-6">
-				A digital garden like no other one you'll ever find... a place of
-				reflection, sharing ideas, ranting about corporations, bopping to hip
-				hop, economic/sports/statistical analysis, philosophical discussion, and
-				especially a place for talking about programming on a deeper level so
-				everyone gets better! I'm a brutally honest person, but I would also say
-				I'm very kind, empathetic, and quite thoughtful. A full-stack developer,
-				entrepreneur, and writer who will try anything more than once,
-				especially if there's a lot of risk involved.
+				Thanks for stopping by my digital garden! The purpose of this space is to help create and connect ideas while creating content that educates, inspires, and entertains my followers and new visitors. Feel free to drop me a comment somewhere, <a href="mailto:andrew.weisbeck@gmail.com">send me an email</a>, or stop by the <a href="/support">Support Andrew page by clicking this link</a> for those of you who can afford it - thank you so much for your help!
 			</p>
 			<SocialList />
 		</div>
 	</section>
 
 
-	<section class="mt-16">
-		<h2 class="text-accent-2 title text-3xl mb-6">Content Categories</h2>
-		<CategoryAccordian />
-	</section>
 
-
-	<h1 class="text-3xl font-bold mt-10">Featured Content</h1>
+	<h1 class="text-3xl font-bold text-accent dark:text-accent-2 mt-10">Featured Content</h1>
 
 	<!-- Blog Posts -->
 
 	<section class="mt-16">
-		<h2 class="text-accent-2 title text-3xl mb-6">Recent Posts</h2>
+		<h2 class="text-global-h2 text-accent-2 dark:text-accent title text-3xl mb-6">Recent Posts</h2>
 		<ul class="space-y-4 grid grid-cols-2" role="list">
 			{
 				allPostsByDate.map((p) => (
@@ -77,7 +65,7 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
 	{
 		latestNotes.length > 0 && (
 			<section class="mt-16">
-				<h2 class="title text-3xl text-accent-2 mb-6">
+				<h2 class="title text-3xl text-accent-2 dark:text-accent mb-6">
 					<a href="/notes/">Notes</a>
 				</h2>
 				<ul class="space-y-6 grid grid-cols-2" role="list">
