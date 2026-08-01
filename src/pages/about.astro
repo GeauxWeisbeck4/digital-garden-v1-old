@@ -9,50 +9,54 @@ const meta = {
 
 <BaseLayout meta={meta}>
 	<section class="mx-auto mt-6 flex flex-col px-4 py-6">
-		<div class="max-w-4xl text-left">
-			<h1 class="text-3xl font-bold mb-12">About WeisGarden</h1>
+		<div class="max-w-6xl text-left">
+			<h1 class="text-3xl font-bold pb-18 text-center">About WeisGarden</h1>
 
-			<div class="grid lg:grid-cols-6">
-				<div class="col-span-2">
+			<div class="grid lg:grid-cols-8">
+				<div class="col-span-3 text-center">
 					<img
-						class="h-76 w-76 rounded-xl text-center mb-2"
+						class="h-108 w-108 rounded-xl text-center mb-2"
 						src="https://res.cloudinary.com/tar-heel-dev-studio/image/upload/t_logo-digital-garden/v1662777703/andrewlisa.jpg"
 						alt="Andrew and his partner Lisa"
 					/>
 					<div class="mb-2">
-						<h3 class="text-xl text-slate-800 font-semibold">
+						<h3 class="text-3xl text-sky-300 font-semibold pb-0.5">
 							Andrew Weisbeck
 						</h3>
-						<p class="text-sm text-slate-500">
+						<p class="text-sm text-teal-300 pb-2">
 							Software Developer, Entrepreneur, Writer
 						</p>
 						<img
-							class="mb-1"
+							class="pb-4 justify-self-center"
 							alt="Static Badge"
 							src="https://img.shields.io/badge/Durham%2C_NC-NC?logo=googlemaps&color=white"
 						/>
+						<hr />
 						<div class="flex flex-col gap-1">
+							<h3 class="text-xl text-sky-300 font-semibold text-center pt-4">
+								My Links
+							</h3>
 							<a
 								href="https://geauxweisbeck4.deno.dev"
-								class="text-teal-700 text-sm hover:text-teal-500 mt-4"
+								class="text-teal-700 text-xl text-center hover:text-teal-500 pt-2"
 								>Portfolio Website</a
 							>
 							<a
 								href="https://tarheeldevstudio.netlify.app"
-								class="text-teal-700 text-sm hover:text-teal-500"
+								class="text-teal-700 text-xl text-center hover:text-teal-500"
 								>Tar Heel Dev Studio</a
 							>
-							<a href="https://substack.com/weismind" class="text-teal-700 text-sm hover:text-teal-500">
+							<a href="https://substack.com/weismind" class="text-teal-700 text-center text-xl hover:text-teal-500">
 								WeisMind Newsletter
 							</a>
 						</div>
 					</div>
 
 					<hr class="my-4 text-slate-500" />
-					<h3 class="text-xl text-slate-800 font-semibold text-center">
+					<h3 class="text-xl text-sky-300 font-semibold text-center">
 						Find Me
 					</h3>
-					<p class="text-center justify-center flex flex-wrap gap-2 mt-2">
+					<p class="text-center justify-center flex flex-wrap gap-4 mt-2">
 						<a href="https://github.com/geauxweisbeck4">
 							<img
 								alt="GitHub Static Badge"
@@ -153,28 +157,15 @@ const meta = {
 						</a>
 					</p>
 				</div>
-				<div class="ml-16 col-span-4 text-left">
-					<h2 class="text-xl font-bold text-slate-800">
-						Hi, I'm Andrew - thanks for stopping by!
-					</h2>
-					<br />
-					<p class="text-md text-black mb-4">
-						WeisGarden has been a project that I've been working on for quite a
-						while - ever since I learned about digital gardens 3-4 years ago
-						really. It would seem easy to just throw a personal blog up and
-						share it right? Not for this guy...
+				<div class="ml-16 col-span-5 text-left">
+					
+					<p class="text-md dark:text-global-text text-global-text mb-4">
+						Hey y'all, I'm Andrew and I am a 35 year old entrepreneur and full stack developer, currently living in Durham, North Carolina. I have many interests including sports, computer science, philosophy, history, reading... the list goes on forever! You will find that I am very passionate about morals, programming, and entrepreneurship through my writing and I hope my words will inspire you and teach you more about who I am. There is more to say about me, but you will have to read through my content to get to know me better and the best place to start is with this digital garden.
 					</p>
-					<p class="text-md text-black mb-4">
-						This project has been carefully planned and created because I take
-						my writing very seriously and want to make sure I own and share my
-						content how I want - WeisGarden is a reflection of my craft as both
-						a developer, creator, and writer.
+					<p class="text-md dark:text-global-text text-global-text mb-4">
+						This digital garden will be my little corner of the internet to help you learn more about me, the world, entrepreneurship, psychology, creativity, programming, and many other interesting topics. My digital garden is the collection of ideas and notes as they are formed into full lenght articles that will be published here and on other writing platforms. I hope you find my work interesting and worth sharing with others, or even better, collaborating with me by leaving comments on the <a href="https://github.com/GeauxWeisbeck4/digital-garden-astro/discussions" class="dark:text-link text-link hover:text-accent">GitHub discussion section of this site</a> or by opening an issue on the <a href="https://github.com/GeauxWeisbeck4/digital-garden-astro/issues" class="dark:text-link text-link hover:text-accent">WeisGarden GitHub repo</a> with a development request for fixing errors or for new features you'd like to see as a reader.
 					</p>
-					<p class="text-md text-black mb-4">
-						I hope you enjoy browisng and reading this site as much as I did
-						creating this project and writing each day. Thank you for your
-						support and reach out to me, please!
-					</p>
+					
 				</div>
 			</div>
 		</div>

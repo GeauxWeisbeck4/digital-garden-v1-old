@@ -1,5 +1,6 @@
 ---
 title: "Mdast Utils"
+tags: ["mdast", "utilities", "markdown", "syntax-trees", "unified-collective"]
 publishDate: "2025-08-26T11:23:00Z"
 description: "Notes about using the utility tools available to work with mdast syntax trees."
 category: "Programming"

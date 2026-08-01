@@ -17,7 +17,7 @@ const socialLinks: {
 		friendlyName: 'Github',
 		link: 'https://github.com/geauxweisbeck4/weisgarden',
 		name: 'mdi:github',
-		color: 'text-stone-900',
+		color: 'text-slate-500',
 	},
 	{
 		friendlyName: 'Gitlab',
@@ -47,7 +47,7 @@ const socialLinks: {
 		friendlyName: 'Threads',
 		link: 'https://www.threads.com/@geauxweisbeck4',
 		name: 'simple-icons:threads',
-		color: 'text-slate-700',
+		color: 'text-slate-500',
 	},
 
 	{
@@ -66,14 +66,14 @@ const socialLinks: {
 			socialLinks.map(({ friendlyName, isWebmention, link, name, color }) => (
 				<li class="flex">
 					<a
-						class={`hover:bg-green-100 hover:p-1 p-1 rounded-lg ${color} inline-block`}
+						class={`${color} inline-block`}
 						href={link}
 						rel={`noreferrer ${isWebmention ? 'me authn' : ''}`}
 						target="_blank"
 					>
 						<Icon
 							aria-hidden="true"
-							class={`h-8 w-8 text-${color} dark:text-white`}
+							class={`h-8 w-8 text-${color} hover:text-teal-500`}
 							focusable="false"
 							name={name}
 						/>
