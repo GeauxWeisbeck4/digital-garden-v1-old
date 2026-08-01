@@ -32,7 +32,7 @@
     "astro-webmanifest": "^0.0.1",
     "hastscript": "^9.0.1",
     "katex": "^0.18.1",
-    "mdast": "^0.26.2",
+    "mdast": "^0.29.0",
     "mdast-util-directive": "^3.1.0",
     "mdast-util-to-markdown": "^2.1.2",
     "mdast-util-to-string": "^4.0.0",
