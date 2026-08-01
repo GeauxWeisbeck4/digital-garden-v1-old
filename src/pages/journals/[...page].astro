@@ -38,7 +38,7 @@ const { page, uniqueTags, pinnedJournals } = Astro.props;
 
 const meta = {
 	description:
-		"I sit quietly by myself every morning and free write my subconscious thoughts into a private space and this is not that - rather it is the interpreted version of those thoughts, however appropriate or inappropriate they may be according to societal norms. I really don't care what people think about me so here it is - take it or leave it. Oh and you'll get a rundown of what trouble I was busy getting into for the day as well 😉.",
+		"Everything in WeisGarden begins with the journal. It is a log for my day, source of planned tasks, and link between planning and doing.",
 	title: 'Journal Entries',
 };
 
@@ -106,7 +106,6 @@ const descMonthKeys = Object.keys(groupedByMonth).sort((a, b) => +b - +a);
 										<JournalPreview journal={journal} />
 									</li>
 								))}
-								|
 							</ul>
 						</section>
 					);
