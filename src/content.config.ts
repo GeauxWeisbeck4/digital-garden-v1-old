@@ -63,12 +63,12 @@ const note = defineCollection({
   loader: glob({ base: "./src/content/notes", pattern: "**/*.{md,mdx}" }),
   schema: searchable.extend({
     description: z.string().optional(),
+    tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
     publishDate: z
       .string()
       .datetime({ offset: true })
       .transform((val) => new Date(val)),
     categories: z.array(z.string()).default([]).transform(removeDupsAndLowerCase).optional(),
-    tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
   }),
 });
 

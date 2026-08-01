@@ -1,5 +1,6 @@
 ---
 title: "unist"
+tags: ["javascript", "unist", "syntax-trees", "utilities", "unified-collective"]
 publishDate: "2025-08-26T11:23:00Z"
 description: "Notes on the universal abstract syntax tree specification and JavaScript open source tool, unified.js."
 category: "JavaScript"

@@ -1,5 +1,6 @@
 ---
 title: "Sick Chill Hip Hop"
+tags: ["hip-hop", "lofi", "music", "collection"]
 publishDate: "2025-10-03T17:23:00Z"
 description: "A collection of sick songs, sick artists, and sick everything else in Chill Hip Hop"
 category: "Music"
