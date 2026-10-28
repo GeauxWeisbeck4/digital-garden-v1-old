@@ -31,7 +31,7 @@
     "astro-robots-txt": "^1.0.0",
     "astro-webmanifest": "^1.0.0",
     "hastscript": "^9.0.1",
-    "katex": "^0.18.1",
+    "katex": "^0.19.0",
     "mdast": "^3.0.0",
     "mdast-util-directive": "^3.1.0",
     "mdast-util-to-markdown": "^2.1.2",
